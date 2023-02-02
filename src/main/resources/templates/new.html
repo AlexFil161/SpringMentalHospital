@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Регистрация нового пациента</title>
+</head>
+<body>
+
+<form th:method="POST" th:action="@{/patient}" th:object="${patient}">
+    <label for="name">j</label>
+    <input type="text" th:field="*{name}" id="name"/>
+    <div style="color:red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Ошибка валидации</div>
+    <br/>
+    <label for="age">Введите возраст: </label>
+    <input type="text" th:field="*{age}" id="age"/>
+    <div style="color:red" th:if="${#fields.hasErrors('age')}" th:errors="*{age}">Ошибка валидации</div>
+    <br/>
+    <label for="diagnosis">Введите диагноз: </label>
+    <input type="text" th:field="*{diagnosis}" id="diagnosis"/>
+    <div style="color:red" th:if="${#fields.hasErrors('diagnosis')}" th:errors="*{diagnosis}">Ошибка валидации</div>
+    <br/>
+    <input type="submit" value="Добавить пациента"/>
+</form>
+
+</body>
+</html>
