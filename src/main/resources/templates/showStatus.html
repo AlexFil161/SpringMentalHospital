@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<div th:if="${patient.isEmpty()}">
+    <p>Под этим статусом нет пациентов.</p>
+    <hr/>
+</div>
+
+<div th:if="${!patient.isEmpty()}">
+    <hr/>
+    <b>Пациенты:</b>
+    <br/>
+    <table th:each="one : ${patient}">
+        <tr th:text="${one.getName() + ', ' + one.getAge() + ', ' + one.getDiagnosis()}">patient</tr>
+    </table>
+    <hr/>
+</div>
+
+</body>
+</html>

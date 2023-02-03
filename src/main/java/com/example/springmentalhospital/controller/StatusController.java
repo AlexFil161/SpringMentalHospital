@@ -27,4 +27,11 @@ public class StatusController {
         model.addAttribute("status", statusDao.indexStatus());
         return "/indexStatus";
     }
+
+    @GetMapping("/status/{id}")
+    public String showStatus(@PathVariable("id") int id, Model model) {
+        model.addAttribute("patient", statusDao.getPatientsByStatusId(id));
+        return "/showStatus";
+
+    }
 }
