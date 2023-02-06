@@ -36,7 +36,8 @@ public class PatientController {
     }
 
     @GetMapping("/patient/new")
-    public String newPatient(@ModelAttribute("patient") Patient patient) {
+    public String newPatient(Model model, @ModelAttribute("patient") Patient patient) {
+        model.addAttribute("statusList", statusDao.indexStatus());
         return "/new";
     }
 

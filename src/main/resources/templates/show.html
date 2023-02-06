@@ -20,7 +20,7 @@
 
 <div>
     <form th:method="PATCH" th:action="@{/patient/{id}/assign(id=${patient.getId()})}">
-        <label for="status">Выберите статус</label>
+        <label for="status">Выберите статус: </label>
         <select th:object="${status}" th:field="*{id}" id="status">
             <option th:each="status : ${statusList}" th:value="${status.getId()}" th:text="${status.getStatusName()}">
             </option>

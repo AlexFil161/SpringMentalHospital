@@ -17,4 +17,6 @@ public class Patient {
 
     private String diagnosis;
 
+    private int status_id;
+
 }

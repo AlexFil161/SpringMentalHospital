@@ -7,7 +7,7 @@
 <body>
 
 <form th:method="POST" th:action="@{/patient}" th:object="${patient}">
-    <label for="name">j</label>
+    <label for="name">Введите имя: </label>
     <input type="text" th:field="*{name}" id="name"/>
     <div style="color:red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Ошибка валидации</div>
     <br/>
@@ -18,6 +18,12 @@
     <label for="diagnosis">Введите диагноз: </label>
     <input type="text" th:field="*{diagnosis}" id="diagnosis"/>
     <div style="color:red" th:if="${#fields.hasErrors('diagnosis')}" th:errors="*{diagnosis}">Ошибка валидации</div>
+    <br/>
+    <label for="status">Выберите статус: </label>
+    <select th:field="*{status_id}" id="status">
+        <option th:each="status : ${statusList}" th:value="${status.getId()}" th:text="${status.getStatusName()}">
+        </option>
+    </select>
     <br/>
     <input type="submit" value="Добавить пациента"/>
 </form>

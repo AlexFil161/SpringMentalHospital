@@ -28,8 +28,8 @@ public class PatientDao {
     }
 
     public void savePatient(Patient patient) {
-        jdbcTemplate.update("INSERT INTO Patient(name, age, diagnosis) VALUES(?, ?, ?)",
-                patient.getName(), patient.getAge(), patient.getDiagnosis());
+        jdbcTemplate.update("INSERT INTO Patient(name, age, diagnosis, status_id) VALUES(?, ?, ?, ?)",
+                patient.getName(), patient.getAge(), patient.getDiagnosis(), patient.getStatus_id());
     }
 
     public void updatePatient( int id, Patient patient) {
